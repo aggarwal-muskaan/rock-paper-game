@@ -1,0 +1,29 @@
+.rock {
+  position: relative;
+  top: -2.5rem;
+  left: 4.5rem;
+}
+
+.paper {
+  position: relative;
+  top: -3rem;
+  right: -11rem;
+}
+
+.scissors {
+  position: relative;
+  top: -1.2rem;
+}
+
+.lizard {
+  position: relative;
+
+  top: -7rem;
+  left: 8rem;
+}
+
+.spock {
+  position: relative;
+  bottom: 20.5rem;
+  left: -2.2rem;
+}
