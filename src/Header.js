@@ -7,8 +7,8 @@ const Header = () => {
     <div
       style={{
         width: "300px",
-        height: "400px",
-        padding: "1.5rem 1rem",
+        // height: "400px",
+        // padding: "1.5rem 1rem",
       }}
     >
       <Container
