@@ -1,5 +1,5 @@
 function Game(props) {
-  return <div>{props.tool}</div>;
+  return <div>hii</div>;
 }
 
 export default Game;

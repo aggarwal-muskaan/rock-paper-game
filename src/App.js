@@ -1,12 +1,16 @@
 import "./App.css";
 import Header from "./Header";
-import Pentagon from "./Pentagon";
+import Routes from "./Routes";
+import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Pentagon />
+
+      <Routes />
+      {/* <Pentagon /> */}
+      <Footer />
     </div>
   );
 }
