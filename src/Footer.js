@@ -20,7 +20,11 @@ const Footer = () => {
 
   return (
     <div>
-      <Button type="button" variant="outlined" onClick={handleClick}>
+      <Button
+        variant="outlined"
+        onClick={handleClick}
+        style={{ borderColor: "#fff", color: "#fff" }}
+      >
         RULES
       </Button>
 
