@@ -6,12 +6,12 @@ import pentagon from "./images/bg-pentagon.svg";
 import "./styles/Pentagon.css";
 import Skeleton from "@material-ui/lab/Skeleton";
 
-function Pentagon() {
+function Pentagon(props) {
   const print = tools.map((t) => (
     <Link to="/result" key={t.name}>
       <Skeleton
         className={"single-item " + t.name}
-        // onClick={() => handleClick(t.name)}
+        onClick={() => props.handleClick(t.name)}
         variant="circle"
         width="70px"
         height="70px"
