@@ -1,11 +1,13 @@
 import React, { createContext } from "react";
-import useScore from "../hooks/useScore";
+import useSessionStorage from "../hooks/useSessionStorage";
+import { reducer } from "../hooks/useScore";
 
 export const currentScore = createContext();
 export const editScore = createContext();
 
 function ManageScore(props) {
-  const [state, dispatch] = useScore();
+  //   const [state, dispatch] = useScore();
+  const [state, dispatch] = useSessionStorage(0, reducer, "score");
 
   return (
     <currentScore.Provider value={state}>
