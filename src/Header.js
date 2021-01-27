@@ -1,8 +1,11 @@
 import logoBonus from "./images/logo-bonus.svg";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
+import { useContext } from "react";
+import { currentScore } from "./context/score.context";
 
 const Header = () => {
+  const score = useContext(currentScore);
   return (
     <div
       style={{
@@ -32,7 +35,7 @@ const Header = () => {
           >
             SCORE
           </h4>
-          <h1 style={{ color: "hsl(229, 25%, 31%)", marginTop: 0 }}>12</h1>
+          <h1 style={{ color: "hsl(229, 25%, 31%)", marginTop: 0 }}>{score}</h1>
         </Card>
       </Container>
     </div>
