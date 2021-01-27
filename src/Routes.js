@@ -21,7 +21,7 @@ function Routes() {
         exact
         restricted
         path="/result"
-        render={() => <Game userTool={state} />}
+        render={(routeProps) => <Game userTool={state} {...routeProps} />}
       />
       <Redirect to="/" />
     </Switch>
