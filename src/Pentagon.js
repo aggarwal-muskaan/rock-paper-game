@@ -1,27 +1,31 @@
 import tools from "./tools";
-// import Game from "./Game";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { selectTool } from "./context/tool.context";
 
 import pentagon from "./images/bg-pentagon.svg";
 import "./styles/Pentagon.css";
 import Skeleton from "@material-ui/lab/Skeleton";
 
 function Pentagon(props) {
+  const newTool = useContext(selectTool);
+
   const print = tools.map((t) => (
-    <Link to="/result" key={t.name}>
-      <Skeleton
-        className={"single-item " + t.name}
-        onClick={() => props.handleClick(t.name)}
-        variant="circle"
-        width="70px"
-        height="70px"
-        animation={false}
-        style={{
-          backgroundColor: "#fff",
-          backgroundImage: t.path,
-        }}
-      />
-    </Link>
+    <Skeleton
+      key={t.name}
+      className={"single-item " + t.name}
+      onClick={() => {
+        newTool(t);
+        props.history.push("/result");
+      }}
+      variant="circle"
+      width="70px"
+      height="70px"
+      animation={false}
+      style={{
+        backgroundColor: "#fff",
+        backgroundImage: t.path,
+      }}
+    />
   ));
   return (
     <div className="Pentagon">

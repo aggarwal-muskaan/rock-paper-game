@@ -3,6 +3,7 @@ import Header from "./Header";
 import Routes from "./Routes";
 import Footer from "./Footer";
 import { ManageScore } from "./context/score.context";
+import { ManageTool } from "./context/tool.context";
 
 function App() {
   // const [score, setScore] = useState("0");
@@ -10,8 +11,9 @@ function App() {
     <div className="App">
       <ManageScore>
         <Header />
-
-        <Routes />
+        <ManageTool>
+          <Routes />
+        </ManageTool>
       </ManageScore>
       {/* <Pentagon /> */}
       <Footer />

@@ -3,21 +3,22 @@ import checkResult from "./checkResult.js";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { useState, useEffect, useRef, useContext } from "react";
 import { editScore } from "./context/score.context";
+import { currTool } from "./context/tool.context";
 import Button from "@material-ui/core/Button";
 import "./styles/Game.css";
 
 function Game(props) {
-  //extracting the tool the user has chosen
-  const user = tools.find((t) => t.name === props.userTool);
-
   // setting state with hook
   const [states, setState] = useState({
     resultStatus: "",
     houseTool: { name: "", path: "", position: 0 },
   });
 
+  //using ContextAPI
   const modifyScore = useContext(editScore);
-  //! for using updated state in gameResult()
+  const { user, reset } = useContext(currTool);
+
+  //for using updated state in gameResult()
   const currPosition = useRef(null);
   currPosition.current = states.houseTool;
 
@@ -60,6 +61,7 @@ function Game(props) {
     const t2 = setTimeout(gameResult, 3000);
 
     return () => {
+      //cleanup
       clearTimeout(t1);
       clearTimeout(t2);
     };
@@ -106,6 +108,7 @@ function Game(props) {
         <Button
           variant="contained"
           onClick={() => {
+            reset();
             props.history.push("/");
           }}
         >
