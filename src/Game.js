@@ -102,18 +102,19 @@ function Game(props) {
           <p>THE HOUSE PICKED:{states.houseTool.name}</p>
         </div>
       </div>
-
       <div>
         <h1>{states.resultStatus}</h1>
-        <Button
-          variant="contained"
-          onClick={() => {
-            reset();
-            props.history.push("/");
-          }}
-        >
-          PLAY AGAIN
-        </Button>
+        {states.resultStatus && (
+          <Button
+            variant="contained"
+            onClick={() => {
+              reset();
+              props.history.push("/");
+            }}
+          >
+            PLAY AGAIN
+          </Button>
+        )}
       </div>
     </div>
   );
