@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from "react";
 
+//session storage maintains state after refresh i.e. non-persistent cookies
 function useSessionStorage(init, reducer, key) {
   const [state, dispatch] = useReducer(reducer, init, () => {
     let prevScore;

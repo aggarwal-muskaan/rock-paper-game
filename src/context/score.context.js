@@ -2,7 +2,9 @@ import React, { createContext } from "react";
 import useSessionStorage from "../hooks/useSessionStorage";
 import { reducer } from "../hooks/useScore";
 
+// context one
 export const currentScore = createContext();
+// context two
 export const editScore = createContext();
 
 function ManageScore(props) {
