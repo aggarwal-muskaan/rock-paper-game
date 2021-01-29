@@ -1,0 +1,18 @@
+.Game-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.user-choice {
+  border-width: 1rem;
+  border-style: solid;
+  /* TODO: if() then color,else border transparent */
+  border-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+  background-position: center;
+}
+
+/* TODO: no decoration on link */

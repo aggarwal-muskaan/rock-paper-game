@@ -1,6 +1,6 @@
 /* eslint-disable */
 // import { useBeforeunload } from "react-beforeunload";
-import { useState, useEffect, useRef, useContext, Redirect } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { editScore } from "./context/score.context";
 import { currTool } from "./context/tool.context";
 import tools from "./tools";
@@ -60,29 +60,33 @@ function Game(props) {
   };
 
   useEffect(() => {
-    const t1 = setTimeout(chooseHouseTool, 1000);
-    const t2 = setTimeout(gameResult, 3000);
+    if (user) {
+      setTimeout(chooseHouseTool, 1000);
+      setTimeout(gameResult, 3000);
+    }
 
     return () => {
       //cleanup
-      clearTimeout(t1);
-      clearTimeout(t2);
+      //  clearTimeout(t1);
+      //  clearTimeout(t2);
     };
-  }, [props.userTool]);
+  }, [user]);
 
-  // TODO:  fix effects warning & refresh & url
+  const redirect = (
+    <Button
+      variant="contained"
+      onClick={() => {
+        reset();
+        props.history.push("/");
+      }}
+    >
+      PLAY AGAIN
+    </Button>
+  );
 
-  // useBeforeunload((e) => {
-  //   // reset();
-  //   console.log("ENCOUNTER");
-  //   // props.history.push("/");
-  //   <Redirect to="/" />;
-  //   return true;
-  // });
-
-  return (
-    <div>
-      <div className="Game1">
+  const print = (
+    <div className="Game">
+      <div className="Game-tools">
         <div>
           <Skeleton
             className="user-choice"
@@ -115,20 +119,11 @@ function Game(props) {
       </div>
       <div>
         <h1>{states.resultStatus}</h1>
-        {states.resultStatus && (
-          <Button
-            variant="contained"
-            onClick={() => {
-              reset();
-              props.history.push("/");
-            }}
-          >
-            PLAY AGAIN
-          </Button>
-        )}
+        {states.resultStatus && redirect}
       </div>
     </div>
   );
+  return user ? print : redirect;
 }
 
 export default Game;
