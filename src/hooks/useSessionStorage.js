@@ -5,8 +5,7 @@ function useSessionStorage(init, reducer, key) {
   const [state, dispatch] = useReducer(reducer, init, () => {
     let prevScore;
     try {
-      prevScore =
-        JSON.parse(window.sessionStorage.getItem(key)) || String(init);
+      prevScore = JSON.parse(window.sessionStorage.getItem(key)) || init;
     } catch (e) {
       prevScore = init;
     }

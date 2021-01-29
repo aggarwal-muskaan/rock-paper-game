@@ -1,11 +1,14 @@
-import tools from "./tools";
-import checkResult from "./checkResult.js";
-import Skeleton from "@material-ui/lab/Skeleton";
-import { useState, useEffect, useRef, useContext } from "react";
+/* eslint-disable */
+// import { useBeforeunload } from "react-beforeunload";
+import { useState, useEffect, useRef, useContext, Redirect } from "react";
 import { editScore } from "./context/score.context";
 import { currTool } from "./context/tool.context";
-import Button from "@material-ui/core/Button";
+import tools from "./tools";
+import checkResult from "./checkResult.js";
+
 import "./styles/Game.css";
+import Skeleton from "@material-ui/lab/Skeleton";
+import Button from "@material-ui/core/Button";
 
 function Game(props) {
   // setting state with hook
@@ -15,7 +18,7 @@ function Game(props) {
   });
 
   //using ContextAPI
-  const modifyScore = useContext(editScore);
+  const dispatch = useContext(editScore);
   const { user, reset } = useContext(currTool);
 
   //for using updated state in gameResult()
@@ -45,11 +48,11 @@ function Game(props) {
 
     switch (resPos) {
       case 0:
-        modifyScore({ type: "add" });
+        dispatch({ type: "add" });
         break;
-      case 1:
-        modifyScore({ type: "sub" });
-        break;
+      // case 1:
+      //   dispatch({ type: "sub" });
+      //   break;
       default:
         break;
     }
@@ -67,7 +70,15 @@ function Game(props) {
     };
   }, [props.userTool]);
 
-  // TODO:  fix effects warning
+  // TODO:  fix effects warning & refresh & url
+
+  // useBeforeunload((e) => {
+  //   // reset();
+  //   console.log("ENCOUNTER");
+  //   // props.history.push("/");
+  //   <Redirect to="/" />;
+  //   return true;
+  // });
 
   return (
     <div>
