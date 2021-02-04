@@ -3,39 +3,18 @@ import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import { useContext } from "react";
 import { currentScore } from "./context/score.context";
+import useStyles from "./styles/HeaderStyle";
 
-const Header = () => {
+const Header = (props) => {
+  const classes = useStyles(props);
   const score = useContext(currentScore);
   return (
-    <div
-      style={{
-        width: "300px",
-        // height: "400px",
-        // padding: "1.5rem 1rem",
-      }}
-    >
-      <Container
-        // maxWidth="xs"
-        style={{
-          padding: ".5rem",
-          border: "3px solid hsl(217, 16%, 45%)",
-          borderRadius: "5px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+    <div className={classes.header}>
+      <Container className={classes.headerContainer}>
         <img src={logoBonus} alt="logo" width="60px" height="60px" />
-        <Card variant="outlined" style={{ padding: "0 1.5rem" }}>
-          <h4
-            style={{
-              color: "hsl(229, 64%, 46%)",
-              marginBottom: 0,
-            }}
-          >
-            SCORE
-          </h4>
-          <h1 style={{ color: "hsl(229, 25%, 31%)", marginTop: 0 }}>{score}</h1>
+        <Card variant="outlined" className={classes.headerCard}>
+          <h4 className={classes.headerCardHeading}>SCORE</h4>
+          <h1 className={classes.headerScore}>{score}</h1>
         </Card>
       </Container>
     </div>
