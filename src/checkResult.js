@@ -16,6 +16,6 @@ export default (user, comp) => {
 
     case 0:
       // currentScore = editScore(); //same score i.e. no increment & decrement
-      return [2, "It's TIE"];
+      return [2, "TIE"];
   }
 };
