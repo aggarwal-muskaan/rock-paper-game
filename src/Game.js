@@ -6,15 +6,19 @@ import { currTool } from "./context/tool.context";
 import tools from "./tools";
 import checkResult from "./checkResult.js";
 
-import "./styles/Game.css";
+import useStyles from "./styles/GameStyle";
 import Skeleton from "@material-ui/lab/Skeleton";
 import Button from "@material-ui/core/Button";
 
 function Game(props) {
+  const classes = useStyles(props);
   // setting state with hook
   const [states, setState] = useState({
-    resultStatus: "",
-    houseTool: { name: "", path: "", position: 0 },
+    result: {
+      resultStatus: "",
+      resultPos: "",
+    },
+    houseTool: { name: "", path: "", color: "", position: 0 },
   });
 
   //using ContextAPI
@@ -35,6 +39,7 @@ function Game(props) {
         position: selected.position,
         name: selected.name,
         path: selected.path,
+        color: selected.color1,
       },
     });
   };
@@ -56,13 +61,16 @@ function Game(props) {
       default:
         break;
     }
-    setState({ houseTool: currPosition.current, resultStatus: res });
+    setState({
+      result: { resultStatus: res, resultPos: resPos },
+      houseTool: currPosition.current,
+    });
   };
 
   useEffect(() => {
     if (user) {
       setTimeout(chooseHouseTool, 1000);
-      setTimeout(gameResult, 3000);
+      setTimeout(gameResult, 2000);
     }
 
     return () => {
@@ -79,47 +87,61 @@ function Game(props) {
         reset();
         props.history.push("/");
       }}
+      className={classes.buttonPlay}
     >
       PLAY AGAIN
     </Button>
   );
 
   const print = (
-    <div className="Game">
-      <div className="Game-tools">
+    <div className={classes.game}>
+      <div className={classes.gameTools}>
         <div>
           <Skeleton
-            className="user-choice"
+            // className={classes.userChoice}
+            className={
+              `${classes.userChoice} ` +
+              (states.result.resultPos === 0 ? `${classes.circleRipple}` : "")
+            }
             variant="circle"
-            width="120px"
-            height="120px"
+            width="100px"
+            height="100px"
             animation={false}
             style={{
               backgroundColor: "#fff",
               backgroundImage: user.path,
+              borderColor: user.color1,
             }}
           />
-          <p>YOU PICKED</p>
+          <p className={classes.skeletonCaption}>YOU PICKED</p>
         </div>
 
         <div>
           <Skeleton
-            className="user-choice"
+            // className={`${classes.userChoice} (
+            //   states.result.resultPos == 1 && ${classes.circleRipple}
+            // )`}
+            className={
+              `${classes.userChoice} ` +
+              (states.result.resultPos === 1 ? `${classes.circleRipple}` : "")
+            }
+            // className={classes.userChoice}
             variant="circle"
             animation={false}
-            width="120px"
-            height="120px"
-            // style={{
-            //   backgroundColor: "#fff",
-            //   backgroundImage: user.path,
-            // }}
+            width="100px"
+            height="100px"
+            style={{
+              borderColor: states.houseTool.color,
+              backgroundColor: states.houseTool.color && "#FFF",
+              backgroundImage: states.houseTool.path,
+            }}
           />
-          <p>THE HOUSE PICKED:{states.houseTool.name}</p>
+          <p className={classes.skeletonCaption}>THE HOUSE PICKED</p>
         </div>
       </div>
       <div>
-        <h1>{states.resultStatus}</h1>
-        {states.resultStatus && redirect}
+        <h1 className={classes.gameResult}>{states.result.resultStatus}</h1>
+        {states.result.resultStatus && redirect}
       </div>
     </div>
   );
