@@ -11,7 +11,13 @@ const Header = (props) => {
   return (
     <div className={classes.header}>
       <Container className={classes.headerContainer}>
-        <img src={logoBonus} alt="logo" width="60px" height="60px" />
+        <img
+          className={classes.logoImage}
+          src={logoBonus}
+          alt="logo"
+          width="60px"
+          height="60px"
+        />
         <Card variant="outlined" className={classes.headerCard}>
           <h4 className={classes.headerCardHeading}>SCORE</h4>
           <h1 className={classes.headerScore}>{score}</h1>
