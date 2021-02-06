@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { greyColor, greyAlphaColor } from "./variables";
 
 export default makeStyles({
   game: {
@@ -42,7 +43,7 @@ export default makeStyles({
 
   buttonPlay: {
     padding: "10px 50px",
-    color: "hsl(229, 25%, 31%)",
+    color: greyColor,
     letterSpacing: "3px",
     fontSize: "12px",
     fontWeight: "600",
@@ -56,12 +57,14 @@ export default makeStyles({
 
   "@keyframes ripple": {
     "0%": {
-      boxShadow:
-        "0 0 0 0 hsla(229, 25%, 31%,.3), 0 0 0 1em hsla(229, 25%, 31%,.3),0 0 0 3em hsla(229, 25%, 31%,.3),0 0 0 4em hsla(229, 25%, 31%,.3)",
+      boxShadow: `0 0 0 0 ${greyAlphaColor(0.3)}, 0 0 0 1em ${greyAlphaColor(
+        0.3
+      )},0 0 0 2em ${greyAlphaColor(0.3)},0 0 0 4em ${greyAlphaColor(0.3)}`,
     },
     "100%": {
-      boxShadow:
-        "0 0 0 1em hsla(229, 25%, 31%,.3),0 0 0 3em hsla(229, 25%, 31%,.3),0 0 0 4em hsla(229, 25%, 31%,.3),0 0 0 7em hsla(229, 25%, 31%,0)",
+      boxShadow: `0 0 0 1em ${greyAlphaColor(0.3)},0 0 0 2em ${greyAlphaColor(
+        0.3
+      )},0 0 0 4em ${greyAlphaColor(0.3)},0 0 0 7em ${greyAlphaColor(0)}`,
     },
   },
 });

@@ -2,7 +2,6 @@ import tools from "./tools";
 import { useContext } from "react";
 import { selectTool } from "./context/tool.context";
 import useStyles from "./styles/PentagonStyle";
-import pentagon from "./images/bg-pentagon.svg";
 import "./styles/PentagonTools.css";
 import Skeleton from "@material-ui/lab/Skeleton";
 
@@ -28,15 +27,7 @@ function Pentagon(props) {
   ));
   return (
     <div className={classes.pentagon}>
-      <div
-        className={classes.pentagonTools}
-        style={{
-          backgroundImage: `url(${pentagon})`,
-        }}
-      >
-        {print}
-      </div>
-      {/* <div>RULES</div> */}
+      <div className={classes.pentagonTools}>{print}</div>
     </div>
   );
 }

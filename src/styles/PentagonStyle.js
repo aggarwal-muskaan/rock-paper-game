@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import pentagon from "../images/bg-pentagon.svg";
 
 export default makeStyles({
   pentagon: {
@@ -11,17 +12,13 @@ export default makeStyles({
   },
 
   pentagonTools: {
-    /* backgroundImage: url(${pentagon}); */
+    backgroundImage: `url(${pentagon})`,
     backgroundSize: "cover",
     height: "220px",
     width: "230px",
   },
 
   singleItem: {
-    /* TODO: border gradient
-                    // borderColor: `linear-gradient(to bottom,${t.color1},${t.color2}) `, */
-    /*? background-color: white; */
-
     position: "relative",
     cursor: "pointer",
 
@@ -34,29 +31,5 @@ export default makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundSize: "40px 40px",
     backgroundPosition: "center",
-  },
-
-  rock: {
-    top: "-2.5rem",
-    left: "4.5rem",
-  },
-
-  paper: {
-    top: "-3rem",
-    right: "-11rem",
-  },
-
-  scissors: {
-    top: "-1.2rem",
-  },
-
-  lizard: {
-    top: "-7rem",
-    left: "8rem",
-  },
-
-  spock: {
-    bottom: "20.5rem",
-    left: "-2.2rem",
   },
 });

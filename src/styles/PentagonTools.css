@@ -1,33 +1,37 @@
+:root {
+  --rock: hsl(349, 71%, 52%);
+  --paper: hsl(230, 89%, 62%);
+  --scissors: hsl(39, 89%, 49%);
+  --lizard: hsl(261, 73%, 60%);
+  --spock: hsl(189, 59%, 53%);
+}
 .rock {
   top: -2.5rem;
   left: 4.5rem;
-  border-color: hsl(349, 71%, 52%);
-  /* border-image-source: linear-gradient(
-    to bottom,
-    hsl(214, 47%, 23%),
-    hsl(237, 49%, 15%)
-  ); */
+  border-color: var(--rock);
 }
 
 .paper {
   top: -3rem;
   right: -11rem;
-  border-color: hsl(230, 89%, 62%);
+  border-color: var(--paper);
 }
 
 .scissors {
   top: -1.2rem;
-  border-color: hsl(39, 89%, 49%);
+  border-color: var(--scissors);
 }
 
 .lizard {
   top: -7rem;
   left: 8rem;
-  border-color: hsl(261, 73%, 60%);
+  border-color: var(--lizard);
 }
 
 .spock {
   bottom: 20.5rem;
   left: -2.2rem;
-  border-color: hsl(189, 58%, 57%);
+  border-color: var(--spock);
 }
+
+/* todo: border colors as linearGradient */

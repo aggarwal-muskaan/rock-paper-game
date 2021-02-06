@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { headerBorder, greyColor, scoreHeading } from "./variables";
 
 const useStyles = makeStyles({
   header: {
@@ -9,7 +10,7 @@ const useStyles = makeStyles({
 
   headerContainer: {
     padding: ".5rem",
-    border: "4px solid hsl(217, 16%, 45%)",
+    border: `4px solid ${headerBorder}`,
     borderRadius: "7px",
     display: "flex",
     justifyContent: "space-between",
@@ -26,14 +27,14 @@ const useStyles = makeStyles({
   },
 
   headerCardHeading: {
-    color: "hsl(229, 64%, 46%)",
+    color: scoreHeading,
     margin: "10px 0 0",
     letterSpacing: "2px",
     fontSize: "14px",
   },
 
   headerScore: {
-    color: "hsl(229, 25%, 31%)",
+    color: greyColor,
     margin: "0 0 10px",
     fontSize: "45px",
   },
