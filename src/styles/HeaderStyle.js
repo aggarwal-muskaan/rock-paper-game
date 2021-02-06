@@ -1,11 +1,15 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { headerBorder, greyColor, scoreHeading } from "./variables";
+import breakpoint from "./breakpoints";
 
 const useStyles = makeStyles({
   header: {
     width: "300px",
     // height: "110px",
-    // padding: "1.5rem 1rem",
+    //todo  padding: "1.5rem 1rem",
+    [breakpoint.up("md")]: {
+      width: "450px",
+    },
   },
 
   headerContainer: {
@@ -24,6 +28,10 @@ const useStyles = makeStyles({
   headerCard: {
     height: "90px",
     padding: "0 1.5rem",
+
+    [breakpoint.up("md")]: {
+      height: "110px",
+    },
   },
 
   headerCardHeading: {
@@ -31,6 +39,9 @@ const useStyles = makeStyles({
     margin: "10px 0 0",
     letterSpacing: "2px",
     fontSize: "14px",
+    [breakpoint.up("md")]: {
+      fontSize: "17px",
+    },
   },
 
   headerScore: {

@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { greyColor, greyAlphaColor } from "./variables";
+import breakpoint from "./breakpoints";
 
 export default makeStyles({
   game: {
@@ -9,6 +10,9 @@ export default makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    [breakpoint.up("lg")]: {
+      width: "420px",
+    },
   },
 
   gameTools: {
@@ -26,6 +30,9 @@ export default makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundSize: "60px 60px",
     backgroundPosition: "center",
+    [breakpoint.up("lg")]: {
+      borderWidth: "1rem",
+    },
   },
 
   skeletonCaption: {

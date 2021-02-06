@@ -3,12 +3,9 @@ import pentagon from "../images/bg-pentagon.svg";
 
 export default makeStyles({
   pentagon: {
-    height: "300px",
+    height: "330px",
     width: "300px",
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
+    display: "contents",
   },
 
   pentagonTools: {
