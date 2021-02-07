@@ -7,7 +7,7 @@ export default makeStyles({
   game: {
     width: "300px",
     height: "330px",
-    margin: "2rem",
+    // margin: "2rem",
     [breakpoint.up("md")]: {
       width: "450px",
       height: "400px",
