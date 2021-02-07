@@ -1,8 +1,8 @@
-/* eslint-disable */
+//  eslint-disable */
 import { makeStyles } from "@material-ui/core/styles";
 import { greyColor, greyAlphaColor } from "./variables";
 import breakpoint from "./breakpoints";
-import { sizing } from "@material-ui/system";
+// import { sizing } from "@material-ui/system";
 export default makeStyles({
   game: {
     width: "300px",
@@ -67,8 +67,7 @@ export default makeStyles({
     width: "100px",
     height: "100px",
     border: ".8rem solid transparent",
-    //todo =box-shadow & gradient border
-    // boxShadow: "2px",
+    //todo box-shadow & gradient border
     backgroundRepeat: "no-repeat",
     backgroundSize: "60px 60px",
     backgroundPosition: "center",

@@ -113,6 +113,8 @@ function Game(props) {
               `${classes.userChoice} ` +
               (states.result.resultPos === 0 ? `${classes.circleRipple}` : "")
             }
+            width={window.innerWidth < 1100 ? "100px" : "150px"}
+            height={window.innerWidth < 1100 ? "100px" : "150px"}
             variant="circle"
             animation={false}
             style={{
@@ -132,6 +134,8 @@ function Game(props) {
               `${classes.userChoice} ` +
               (states.result.resultPos === 1 ? `${classes.circleRipple}` : "")
             }
+            width={window.innerWidth < 1100 ? "100px" : "150px"}
+            height={window.innerWidth < 1100 ? "100px" : "150px"}
             variant="circle"
             animation={false}
             style={{
