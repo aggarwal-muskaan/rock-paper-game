@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { greyColor, greyAlphaColor } from "./variables";
 import breakpoint from "./breakpoints";
-
+import { sizing } from "@material-ui/system";
 export default makeStyles({
   game: {
     width: "300px",
