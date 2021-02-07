@@ -93,19 +93,27 @@ function Game(props) {
     </Button>
   );
 
+  const showResult = (
+    <div className={classes.text}>
+      <h1 className={classes.gameResult}>{states.result.resultStatus}</h1>
+      {states.result.resultStatus && redirect}
+    </div>
+  );
   const print = (
     <div className={classes.game}>
-      <div className={classes.gameTools}>
-        <div>
+      <div
+        className={
+          `${classes.gameTools} ` +
+          (states.result.resultStatus && `${classes.skeletonsWithResult}`)
+        }
+      >
+        <div className={`${classes.toolContainer}`}>
           <Skeleton
-            // className={classes.userChoice}
             className={
               `${classes.userChoice} ` +
               (states.result.resultPos === 0 ? `${classes.circleRipple}` : "")
             }
             variant="circle"
-            width="100px"
-            height="100px"
             animation={false}
             style={{
               backgroundColor: "#fff",
@@ -116,20 +124,16 @@ function Game(props) {
           <p className={classes.skeletonCaption}>YOU PICKED</p>
         </div>
 
-        <div>
+        {states.result.resultStatus && showResult}
+
+        <div className={`${classes.skeleton2} ${classes.toolContainer}`}>
           <Skeleton
-            // className={`${classes.userChoice} (
-            //   states.result.resultPos == 1 && ${classes.circleRipple}
-            // )`}
             className={
               `${classes.userChoice} ` +
               (states.result.resultPos === 1 ? `${classes.circleRipple}` : "")
             }
-            // className={classes.userChoice}
             variant="circle"
             animation={false}
-            width="100px"
-            height="100px"
             style={{
               borderColor: states.houseTool.color,
               backgroundColor: states.houseTool.color && "#FFF",
@@ -138,10 +142,6 @@ function Game(props) {
           />
           <p className={classes.skeletonCaption}>THE HOUSE PICKED</p>
         </div>
-      </div>
-      <div>
-        <h1 className={classes.gameResult}>{states.result.resultStatus}</h1>
-        {states.result.resultStatus && redirect}
       </div>
     </div>
   );

@@ -7,31 +7,82 @@ export default makeStyles({
     width: "300px",
     height: "330px",
     margin: "2rem",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
+    [breakpoint.up("md")]: {
+      width: "450px",
+      height: "400px",
+    },
     [breakpoint.up("lg")]: {
-      width: "420px",
+      width: "750px",
+      height: "300px",
     },
   },
 
   gameTools: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    [breakpoint.up("md")]: {
+      rowGap: "15%",
+    },
+    [breakpoint.up("lg")]: {
+      display: "flex",
+      alignItems: "center",
+      width: "70%",
+      justifyContent: "space-between",
+      margin: "auto",
+    },
+  },
+
+  skeletonsWithResult: {
+    [breakpoint.up("lg")]: {
+      width: "100%",
+    },
+  },
+
+  toolContainer: {
     display: "flex",
-    justifyContent: "space-between",
+    flexDirection: "column",
     alignItems: "center",
-    width: "100%",
+  },
+
+  skeleton2: {
+    [breakpoint.up("lg")]: {
+      order: "3",
+    },
+  },
+
+  text: {
+    gridRow: "2",
+    gridColumn: "1/3",
+    [breakpoint.up("lg")]: {
+      order: "2",
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+    },
   },
 
   userChoice: {
-    borderWidth: ".8rem",
-    borderStyle: "solid",
-
-    borderColor: "transparent",
+    width: "100px",
+    height: "100px",
+    border: ".8rem solid transparent",
+    //todo =box-shadow & gradient border
+    // boxShadow: "2px",
     backgroundRepeat: "no-repeat",
     backgroundSize: "60px 60px",
     backgroundPosition: "center",
+    [breakpoint.up("md")]: {
+      width: "130px",
+      height: "130px",
+      borderWidth: "1.1rem",
+      backgroundSize: "70px 70px",
+    },
     [breakpoint.up("lg")]: {
-      borderWidth: "1rem",
+      order: "2",
+      width: "150px",
+      height: "150px",
+      borderWidth: "1.5rem",
+      backgroundSize: "80px 80px",
     },
   },
 
@@ -39,6 +90,11 @@ export default makeStyles({
     color: "white",
     letterSpacing: "1px",
     fontSize: "14px",
+    [breakpoint.up("lg")]: {
+      order: "1",
+      marginBottom: "2rem",
+      zIndex: 2,
+    },
   },
 
   gameResult: {
@@ -46,6 +102,9 @@ export default makeStyles({
     letterSpacing: "2px",
     fontSize: "45px",
     marginBottom: "15px",
+    [breakpoint.up("lg")]: {
+      marginTop: 0,
+    },
   },
 
   buttonPlay: {
@@ -60,6 +119,9 @@ export default makeStyles({
   circleRipple: {
     borderRadius: "50%",
     animation: `$ripple .8s linear infinite`,
+    [breakpoint.up("lg")]: {
+      animation: `$rippleLg .8s linear infinite`,
+    },
   },
 
   "@keyframes ripple": {
@@ -72,6 +134,18 @@ export default makeStyles({
       boxShadow: `0 0 0 1em ${greyAlphaColor(0.3)},0 0 0 2em ${greyAlphaColor(
         0.3
       )},0 0 0 4em ${greyAlphaColor(0.3)},0 0 0 7em ${greyAlphaColor(0)}`,
+    },
+  },
+  "@keyframes rippleLg": {
+    "0%": {
+      boxShadow: `0 0 0 0 ${greyAlphaColor(0.3)}, 0 0 0 2em ${greyAlphaColor(
+        0.3
+      )},0 0 0 4em ${greyAlphaColor(0.3)},0 0 0 6em ${greyAlphaColor(0.3)}`,
+    },
+    "100%": {
+      boxShadow: `0 0 0 2em ${greyAlphaColor(0.3)},0 0 0 4em ${greyAlphaColor(
+        0.3
+      )},0 0 0 6em ${greyAlphaColor(0.3)},0 0 0 8em ${greyAlphaColor(0)}`,
     },
   },
 });

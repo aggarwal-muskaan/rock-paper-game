@@ -7,8 +7,11 @@ import Typography from "@material-ui/core/Typography";
 
 import Button from "@material-ui/core/Button";
 import rules from "./images/rules.svg";
+import useStyles from "./styles/FooterStyle";
 
-const Footer = () => {
+const Footer = (props) => {
+  const classes = useStyles(props);
+
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(true);
@@ -19,11 +22,11 @@ const Footer = () => {
   };
 
   return (
-    <div>
+    <div className={classes.footer}>
       <Button
         variant="outlined"
         onClick={handleClick}
-        style={{ borderColor: "#fff", color: "#fff" }}
+        className={classes.footerButton}
       >
         RULES
       </Button>
@@ -37,11 +40,7 @@ const Footer = () => {
         <MuiDialogTitle
           id="customized-dialog-title"
           disableTypography
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
+          className={classes.modalText}
         >
           <Typography variant="h5">RULES</Typography>
           <IconButton onClick={closeModal} aria-label="close">

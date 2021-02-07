@@ -5,10 +5,11 @@ import breakpoint from "./breakpoints";
 const useStyles = makeStyles({
   header: {
     width: "300px",
-    // height: "110px",
-    //todo  padding: "1.5rem 1rem",
     [breakpoint.up("md")]: {
       width: "450px",
+    },
+    [breakpoint.up("lg")]: {
+      width: "600px",
     },
   },
 
@@ -29,9 +30,9 @@ const useStyles = makeStyles({
     height: "90px",
     padding: "0 1.5rem",
 
-    [breakpoint.up("md")]: {
-      height: "110px",
-    },
+    // [breakpoint.up("md")]: {
+    //   height: "110px",
+    // },
   },
 
   headerCardHeading: {
